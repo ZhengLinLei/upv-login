@@ -27,4 +27,5 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install requests argparse
-        python ./recollect.py -m 20000000 -M 90000000
+        python -u ./test.py -u 28761254
+        python -u ./recollect.py -v -m 20000000 -M 90000000
