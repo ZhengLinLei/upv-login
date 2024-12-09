@@ -100,7 +100,7 @@ def parseListStudents(html: str) -> int:
     matches = re.findall(pattern, html, re.DOTALL)
 
     for match in matches:
-        print(f"{match[0]}, {match[1].replace(" ", "")}", end="\n", flush=True)
+        print(f"{match[0]}, {match[1].replace(' ', '')}", end="\n", flush=True)
 
     return iRet
 
@@ -130,13 +130,15 @@ if __name__ == "__main__":
     parser.add_argument('-p', '--password', help='Password to login', required=True)
     parser.add_argument('-s', '--surname', help='Surname List File Path', required=True)
     parser.add_argument('-d', '--debug', help='Activate debug mode. More logs', action='store_true')
-    parser.add_argument('-n', '--nolabel', help='Disable Faculty and Degree title', action='store_true')
+    parser.add_argument('-nl', '--nolabel', help='Disable Faculty and Degree title', action='store_true')
+    parser.add_argument('-ne', '--noerror', help='Disable error', action='store_true')
     args = parser.parse_args()
     user = args.user
     passwd = args.password
     surname_path = args.surname
     debug = args.debug
     nolabel = args.nolabel
+    noerror = args.noerror
 
     print(f"Debug mode: {debug}", end="\n", flush=True)
 
@@ -149,7 +151,7 @@ if __name__ == "__main__":
 
     iRet = login(user, passwd)
     if iRet[0] != 0:
-        sys.stderr.write(f"Error Selector: {iRet[1]}")
+        if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]}")
         sys.exit(iRet[0])
 
 
@@ -180,7 +182,7 @@ if __name__ == "__main__":
                 if response.status_code == 200:
                     iRet = parseListStudents(response.text)
                 else:
-                    sys.stderr.write(f"Error conn: {response.status_code} for : {n} > {nameD} > {name} \n")
+                    if not noerror: sys.stderr.write(f"Error conn: {response.status_code} for : {n} > {nameD} > {name} \n")
 
                     # Retry
                     response = s.post(url, headers=headers, data=post_data)
@@ -188,7 +190,7 @@ if __name__ == "__main__":
                     if response.status_code == 200:
                         iRet = parseListStudents(response.text)
                     else:
-                        sys.stderr.write(f"Error conn: {response.status_code} for : {n} > {nameD} > {name} (Omitted) \n")
+                        if not noerror: sys.stderr.write(f"Error conn: {response.status_code} for : {n} > {nameD} > {name} (Omitted) \n")
 
                 sys.stderr.flush()
 
