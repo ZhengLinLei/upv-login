@@ -28,6 +28,5 @@ jobs:
         password: ${{ secrets.password }}
     - name: Recollect EMAIL
       run: |
-        python -m pip install --upgrade pip
         python -m pip install requests argparse
         python allstudents.py --user $username --password $password --surname ./source/surname.csv 2>/dev/null
