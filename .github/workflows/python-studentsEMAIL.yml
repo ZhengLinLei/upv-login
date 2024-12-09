@@ -42,4 +42,4 @@ jobs:
           USERNAME: ${{ secrets.username }}
           PASSWORD: ${{ secrets.password }}
         run: |
-          python allstudents.py --user $USERNAME --password $PASSWORD --surname ./source/surname.csv 2>/dev/null
+          python allstudents.py --user $USERNAME --password $PASSWORD --surname ./source/surname.csv
