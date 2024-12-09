@@ -90,7 +90,7 @@ def error_selector(html: str, category: int) -> (int, str):
         if "Error" in html:
             iRet = login(user, passwd)
             if iRet[0] != 0:
-                if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]}")
+                if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]} \n")
                 sys.exit(iRet[0])
             return (1, "Generic Error")
         
@@ -103,7 +103,7 @@ def parseListStudents(html: str) -> int:
     iRet = error_selector(html, 1)
 
     if iRet[0] != 0: 
-        sys.stderr.write(f"Error Selector: {iRet[1]}")
+        sys.stderr.write(f"Error Selector: {iRet[1]}\n")
         return iRet
 
     # Parse HTML table
@@ -122,16 +122,6 @@ def login(user: str, passwd: str) -> int:
     # Check login
     return error_selector(response.text, 0)
 
-***REMOVED***
-# Enviar la solicitud POST
-#response = s.post(url, headers=headers, data=post_data)
-
-# Verificar la respuesta
-# if response.status_code == 200:
-#     print("Solicitud exitosa. Respuesta:")
-#     print(response.text)  # Muestra el contenido de la respuesta
-# else:
-#     print(f"Error en la solicitud: {response.status_code}")
 
 
 if __name__ == "__main__":
@@ -153,7 +143,7 @@ if __name__ == "__main__":
     print(f"Debug mode: {debug}", end="\n", flush=True)
 
     if not os.path.isfile(surname_path) or not os.path.isfile(FACULTY_FILE) or not os.path.isfile(DEGREE_FILE):
-        sys.stderr.write("Archivos faltantes")
+        sys.stderr.write("Archivos faltantes\n")
         sys.exit(1)
 
     # Files
@@ -161,7 +151,7 @@ if __name__ == "__main__":
 
     iRet = login(user, passwd)
     if iRet[0] != 0:
-        if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]}")
+        if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]}\n")
         sys.exit(iRet[0])
 
 
@@ -184,7 +174,7 @@ if __name__ == "__main__":
 
                 response = s.post(url, headers=headers, data=post_data)
 
-                # print(response.text)
+                print(response.text)
 
                 iRet = 1
 
