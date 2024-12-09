@@ -1,0 +1,17 @@
+[
+    {"nombre": "Escuela de Doctorado", "value": "W"},
+    {"nombre": "Escuela Politécnica Superior de Alcoy", "value": "J"},
+    {"nombre": "Escuela Politécnica Superior de Gandia", "value": "Q"},
+    {"nombre": "Escuela Técnica Superior de Arquitectura", "value": "B"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería Aeroespacial y Diseño Industrial", "value": "E"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería Agronómica y del Medio Natural", "value": "S"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería de Caminos, Canales y Puertos", "value": "C"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería de Edificación", "value": "H"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería de Telecomunicación", "value": "T"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería Geodésica, Cartográfica y Topográfica", "value": "G"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería Industrial", "value": "D"},
+    {"nombre": "Escuela Técnica Superior de Ingeniería Informática", "value": "R"},
+    {"nombre": "Facultad de Administración y Dirección de Empresas", "value": "M"},
+    {"nombre": "Facultad de Bellas Artes", "value": "L"},
+    {"nombre": "Unidad de Másteres Universitarios", "value": "X"}
+]
