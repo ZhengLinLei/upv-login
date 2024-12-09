@@ -83,8 +83,13 @@ def error_selector(html: str, category: int) -> (int, str):
 
     elif category == 1:
 
+        if "Nombre muy corto" in html:
+            return (2, "Apellido muy corto")
+
         if "Error" in html:
             return (1, "Generic Error")
+        
+
 
         return (0, "")
 
