@@ -37,6 +37,7 @@ s = requests.session()
 # Endpoint
 url = "https://intranet.upv.es/pls/soalu/sic_dal.Buscar_Alumno?P_IDIOMA=c&P_VISTA=intranet"
 pattern = r'<span style="font-style: italic;">(.*?)</span>.*?ParseEmail\(\'(.*?)\'\)'
+user, passwd = "", ""
 
 # Headers configuration
 headers = {
@@ -87,6 +88,10 @@ def error_selector(html: str, category: int) -> (int, str):
             return (2, "Apellido muy corto")
 
         if "Error" in html:
+            iRet = login(user, passwd)
+            if iRet[0] != 0:
+                if not noerror: sys.stderr.write(f"Error Selector: {iRet[1]}")
+                sys.exit(iRet[0])
             return (1, "Generic Error")
         
 
