@@ -135,6 +135,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     user = args.user
     passwd = args.password
+
+    # First letters of password
+    print ("First letters of password: ", passwd[:5])
+    print ("User", user)
     surname_path = args.surname
     debug = args.debug
     nolabel = args.nolabel
