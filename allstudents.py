@@ -137,8 +137,6 @@ if __name__ == "__main__":
     passwd = args.password
 
     # First letters of password
-    print ("First letters of password: ", passwd[:5])
-    print ("User", user)
     surname_path = args.surname
     debug = args.debug
     nolabel = args.nolabel
@@ -177,8 +175,6 @@ if __name__ == "__main__":
                 post_data["p_tit"] = vD
 
                 response = s.post(url, headers=headers, data=post_data)
-
-                print(response.text)
 
                 iRet = 1
 
