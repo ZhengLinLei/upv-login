@@ -7,13 +7,13 @@
 
     - Clone repository
     - Let path structure as it was cloned
-    - Execute python script : python3 allstudents.py --user $user --password $password --surname ./source/surname.txt -d > result.txt 2> error.log
+    - Execute python script : python3 allstudents.py --user $user --password $password --surname ../resource/surname.csv -d > result.txt 2> error.log
     - All the result will be shown in result.txt
     - This action will take few minutes
     
 
     For no degree name label add -n
-    python3 allstudents.py --user $user --password $password --surname ./source/surname.txt -d -n > result.txt 2> error.log
+    python3 allstudents.py --user $user --password $password --surname ../resource/surname.csv -d -n > result.txt 2> error.log
 
 """
 
@@ -25,11 +25,11 @@ Usage: python3 sys.argv[0] -u $user -p $password -s $path_to_file
 
 Help: python3 sys.argv[0] --help
 
-Example: python3 allstudents.py --user $user --password $password --surname ./source/surname.txt -d > result.txt 2> error.log
+Example: python3 allstudents.py --user $user --password $password --surname ../resource/surname.csv -d > result.txt 2> error.log
 """
 
-FACULTY_FILE="./source/facultades/directory.json"
-DEGREE_FILE="./source/carreras/directory.json"
+FACULTY_FILE="../resource/facultades/directory.json"
+DEGREE_FILE="../resource/carreras/directory.json"
 
 s = requests.session()
 
