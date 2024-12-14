@@ -15,7 +15,7 @@ def create_mosaic(image_folder, output_path):
     grid_height = math.ceil(num_images / grid_width)
 
     # Open images in order and determine the maximum width and height
-    images = [(Image.open(img).resize((164, 180)), img) for img in image_files]
+    images = [(Image.open(img).resize((240, 280)), img) for img in image_files]
     # Sort by filename
     images.sort(key=lambda x: int(os.path.basename(x[1]).split('.')[0]))
 

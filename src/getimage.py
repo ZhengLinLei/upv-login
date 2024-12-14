@@ -110,7 +110,7 @@ if __name__ == "__main__":
     if not os.path.exists(output):
         os.makedirs(output)
 
-    for i in range(int(student_range.split(":")[0]), int(student_range.split(":")[1])):
+    for i in range(int(student_range.split(":")[0]), int(student_range.split(":")[1]) + 1):
         id = year + str(i).zfill(3) + "99"
         iRet = getImage(id, output)
         print(f"Image {id} saved in {output} ----------------- {i}/{int(student_range.split(':')[1])}    ------ {iRet}")
